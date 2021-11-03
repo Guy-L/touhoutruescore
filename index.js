@@ -5,22 +5,17 @@ $(function() {
 	$("body").css("background-repeat", "no-repeat");
 	$("body").css("background-size", "100% auto");
 	
-	alert(1);
+	alert("This is a WIP page. Please come by later.");
 	db = getDatabase();
-	alert(db);
+	//alert(db);
     //const contents = db.exec("SELECT * FROM my_table");
 });
 
 async function getDatabase(){
 	const SQL = await initSqlJs();
-	alert(SQL);
     const fetched = await fetch("truescore.db");
-	alert(fetched);
     const buf = await fetched.arrayBuffer();
-	alert(buf);
 	const data = new SQL.Database(new Uint8Array(buf));
-	alert(data);
-	const test = db.exec("SELECT * FROM my_table");
-	alert(test);
+	const test = data.exec("SELECT * FROM wbawc");
     return data;
 }
