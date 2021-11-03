@@ -13,7 +13,10 @@ $(function() {
 
 async function getDatabase(){
 	const SQL = await initSqlJs();
+	alert(SQL);
     const fetched = await fetch("truescore.db");
+	alert(fetched);
     const buf = await fetched.arrayBuffer();
+	alert(buf);
     return new SQL.Database(new Uint8Array(buf));
 }
