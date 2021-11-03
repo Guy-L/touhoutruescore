@@ -10,7 +10,7 @@ body{
 #main, #board{
 	margin: 0 auto;
 	width: 85%;
-	background-color: rgba(0, 0, 0, 0.25);
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
 #board{
@@ -39,15 +39,16 @@ body{
 }
 
 #umboard{
-	background-color: rgba(0, 0, 0, 0.25);
+	background-color: rgba(0, 0, 0, 0.5);
 	margin-top: 1em;
 	width: 100%;
 }
 
-th{
-	background-color: rgba(0, 0, 0, 0.25);
+th { 
+	background-color: rgba(0, 0, 0, 0.5);
+	font-weight: bold;
 }
 
-td{
-	border: 1px solid white;
-}
+tr { outline: thin solid black; }
+td, th { border-left: 1px solid #000; }
+td:first-child, th:first-child { border-left: none; }
