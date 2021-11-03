@@ -19,6 +19,7 @@ body{
 	border-radius: 1em;
     box-sizing: border-box;
 	padding: 1em;
+	overflow-x: scroll;
 }
 
 #banner{
@@ -47,6 +48,6 @@ th{
 	background-color: rgba(0, 0, 0, 0.25);
 }
 
-//table, tr, th, td{
-//	border: 1px solid white;
-//}
+td{
+	border: 1px solid white;
+}
