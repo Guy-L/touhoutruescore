@@ -18,7 +18,7 @@ async function getDatabase(){
 	alert(fetched);
     const buf = await fetched.arrayBuffer();
 	alert(buf);
-	const data = new SQL.Database(new Uint8Array(buf);
+	const data = new SQL.Database(new Uint8Array(buf));
 	alert(data);
     return data;
 }
