@@ -3,7 +3,9 @@ $(function() {
 	$("body").css("background-repeat", "no-repeat");
 	$("body").css("background-size", "100% auto");
 	
+	alert(1);
 	const db = getDatabase();
+	alert(db);
     //const contents = db.exec("SELECT * FROM my_table");
 });
 
