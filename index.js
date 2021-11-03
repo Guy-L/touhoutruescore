@@ -20,5 +20,7 @@ async function getDatabase(){
 	alert(buf);
 	const data = new SQL.Database(new Uint8Array(buf));
 	alert(data);
+	const test = db.exec("SELECT * FROM my_table");
+	alert(test);
     return data;
 }
