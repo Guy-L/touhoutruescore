@@ -4,13 +4,14 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html;charset=utf-8">
 		<meta charset="utf-8">
-		<title>Touhou TrueScore Leaderboards</title>
+		<title>TrueScore Leaderboards</title>
 		<link href="assets/fav.ico" rel="icon">
 		<link href="gold.ico" rel="icon">
 		
 		<link href="index.css" type="text/css" rel="stylesheet"/>
 		<script src="jquery-3.6.0.min.js"></script>
 		<script src='sql-wasm.js'></script>
+		<script src="sorttable.js"></script>
 		<script src="index.js"></script>
 	</head>
 	
@@ -27,35 +28,29 @@
 			<table id="umboard">
               <tr>
                 <th>#</th>
-                <th>Truescore</th>
+                <th>True Score</th>
                 <th>Difficulty</th>
                 <th>Character</th>
                 <th>Submitter</th>
-                <th>Goes By</th>
-                <th>Slow</th>
+                <th>Goes&nbsp;By</th>
+                <th>Slow%</th>
                 <th>UD</th>
                 <th>RpyDate</th>
                 <th>Time</th>
                 <th>SubDate</th>
-                <th>Comment</th>
-                <th>Link</th>
-                <th>Source</th>
+                <th class="sorttable_nosort">Comment</th>
+                <th class="sorttable_nosort">Link</th>
+                <th class="sorttable_nosort">Source</th>
                 <th>FinRpyScore</th>
                 <th>FinShopScore</th>
                 <th>Gold</th>
-                <th>Lives</th>
-                <th>LifeP</th>
-                <th>Bombs</th>
-                <th>BombP</th>
-                <th>Start1</th>
-                <th>Start2</th>
-                <th>Start3</th>
-                <th>ST1</th>
-                <th>ST2</th>
-                <th>ST3</th>
-                <th>ST4</th>
-                <th>ST5</th>
-                <th>IsRepaired</th>
+                <th class="sorttable_nosort" colspan=4>Ending Resources</th>
+                <th class="sorttable_nosort" colspan=3>Start</th>
+                <th class="sorttable_nosort">ST1</th>
+                <th class="sorttable_nosort">ST2</th>
+                <th class="sorttable_nosort">ST3</th>
+                <th class="sorttable_nosort">ST4</th>
+                <th class="sorttable_nosort">ST5</th>
               </tr>
               
             </table> 

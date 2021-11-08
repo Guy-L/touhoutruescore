@@ -1,6 +1,7 @@
 body{
 	scroll-behavior: smooth;
 	font-family: Montserrat,Helvetica,Arial,sans-serif;
+	background-color: black;
 	background-image: url("defaultbg.png");
 	background-repeat: repeat;
 	margin: 0 100px 0 0;
@@ -44,11 +45,18 @@ body{
 	width: 100%;
 }
 
+#umboard img{
+	height: 3em;
+}
+
 th { 
 	background-color: rgba(0, 0, 0, 0.5);
 	font-weight: bold;
 }
 
-tr { outline: thin solid black; }
-td, th { border-left: 1px solid #000; }
+tr { outline: thin solid grey; }
+td:nth-child(5), td:nth-child(12) { white-space: nowrap; }
+td:nth-child(-n+22), th { border-left: 1px solid grey; }
 td:first-child, th:first-child { border-left: none; }
+td:nth-child(-n+21) { padding-left: 1em; padding-right: 1em; }
+
