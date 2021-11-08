@@ -13,9 +13,12 @@ $(function() {
 			for(let data = 0; data < replay.length - 1; data++){
 				let cell = row.insertCell(-1);
 				
-				if(data == 7) cell.innerHTML = replay[data];
-				else if(data == 12) cell.innerHTML = "<a href=\"" + replay[data] + "\">Resource</a>" + (replay[29] == 1 ? "*":"");
-				else if(data > 20 && data < 29) cell.innerHTML = "<img src=\"cards/" + replay[data] + ".png\" alt=\"" + replay[data] + "\" title=\"" + replay[data] + "\">";
+				if(replay[data] == null) continue;
+				
+				if(data == 5) cell.innerHTML = replay[data].toFixed(2) + "%";
+				else if(data == 6) cell.innerHTML = replay[data];
+				else if(data == 11) cell.innerHTML = "<a href=\"" + replay[data] + "\">Resource</a>" + (replay[28] == 1 ? "<span data-tip=\"This replay had to be repaired due to desyncs.\nIts current host differs from its source.\"><img src=\"help.png\" class=\"help\"></span>":"");
+				else if(data > 19 && data < 28) cell.innerHTML = "<img src=\"cards/" + replay[data] + ".png\" alt=\"" + replay[data] + "\" title=\"" + replay[data] + "\" class=\"card\">";
 				else cell.innerHTML = isNaN(replay[data]) ? replay[data] : Number(replay[data]).toLocaleString();
 			}
 		}
