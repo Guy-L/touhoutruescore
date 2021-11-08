@@ -24,39 +24,59 @@
 		</div>
 		
 		<div id="board">
-			Any difficulty | Any character| Sort by Score<br>
-			Infobox | Big / Normal / Table View
-			<table id="umboard">
-              <tr>
-                <th class="sorttable_nosort">Difficulty</th>
-                <th class="sorttable_nosort">Character</th>
-                <th class="sorttable_nosort">Submitter</th>
-                <th class="sorttable_nosort">Goes&nbsp;By</th>
-                <th>True Score</th>
-                <th>Slow</th>
-                <th>UD</th>
-                <th>Date</th>
-                <th class="sorttable_nosort">Time</th>
-                <th>SubDate<span data-tip="Submission Date"><img src="help.png" class="help"></span></th>
-                <th class="sorttable_nosort">Comment</th>
-                <th class="sorttable_nosort">Link</th>
-                <th class="sorttable_nosort">Source</th>
-                <th>FinRpyScore<span data-tip="Final score read in replay using ACK's current bonus fix.
+			<div id="data-selectors">
+				<table>
+					<tr>
+						<td>Any difficulty...</th>
+						<td>Any character...</th>
+						<td>Sort by: Score</th>
+					</tr>
+				</table>	
+			</div>
+			<div id="view-selectors">
+				<img src="help.png" class="game-info">
+				<table>
+					<tr>
+						<td>Big</th>
+						<td>Normal</th>
+						<td class="selected-view">Table</th>
+					</tr>
+				</table>	
+			</div>
+			
+			<div id="umboard">
+				<table id="umtable" class="table-board">
+				  <tr>
+					<th class="sorttable_nosort">Difficulty</th>
+					<th class="sorttable_nosort">Character</th>
+					<th class="sorttable_nosort">Submitter</th>
+					<th class="sorttable_nosort">Goes&nbsp;By</th>
+					<th>True Score</th>
+					<th>Slow</th>
+					<th>UD</th>
+					<th>Date</th>
+					<th class="sorttable_nosort">Time</th>
+					<th class="sorttable_nosort">Comment</th>
+					<th class="sorttable_nosort">Link</th>
+					<th class="sorttable_nosort">Source</th>
+					<th>SubDate<span class="tip-under" data-tip="Submission Date"><img src="help.png" class="help"></span></th>
+					<th>FinRpyScore<span class="tip-under" data-tip="Final score read in replay using ACK's current bonus fix.
 Stage bonus (6mil) has to be added to calculate true score."><img src="help.png" class="help"></span></th>
-                <th>FinShopScore<span data-tip="Score read in replay when entering the Stage 5 shop.
+					<th>FinShopScore<span class="tip-under"  data-tip="Score read in replay when entering the Stage 5 shop.
 Any score over counterstop (plus the 5mil stage bonus) is reset to counterstop
 when entering Stage 6 and must be added to the final score read to calculate true score."><img src="help.png" class="help"></span></th>
-                <th>Gold</th>
-                <th class="sorttable_nosort" colspan=4>Ending Resources<span data-tip="Lives (Pieces) / Bombs (Pieces)"><img src="help.png" class="help"></span></th>
-                <th class="sorttable_nosort" colspan=3>Starters</th>
-                <th class="sorttable_nosort">ST1</th>
-                <th class="sorttable_nosort">ST2</th>
-                <th class="sorttable_nosort">ST3</th>
-                <th class="sorttable_nosort">ST4</th>
-                <th class="sorttable_nosort">ST5</th>
-              </tr>
-              
-            </table> 
+					<th>Gold</th>
+					<th class="sorttable_nosort" colspan=4>Ending Resources<span class="tip-under"  data-tip="Lives (Pieces) / Bombs (Pieces)"><img src="help.png" class="help"></span></th>
+					<th class="sorttable_nosort" colspan=3>Starters</th>
+					<th class="sorttable_nosort">ST1</th>
+					<th class="sorttable_nosort">ST2</th>
+					<th class="sorttable_nosort">ST3</th>
+					<th class="sorttable_nosort">ST4</th>
+					<th class="sorttable_nosort">ST5</th>
+				  </tr>
+				  
+				</table> 
+			</div>
 		</div>
 	</body>
 </html> 
