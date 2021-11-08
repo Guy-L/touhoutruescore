@@ -41,6 +41,7 @@ async function getUMData(){
 }
 
 //TODO: 
+//0.5. Stable sort should be implemented for time
 //1. Filter selectors
 //2. View selectors
 //3. WBaWC
