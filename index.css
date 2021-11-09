@@ -75,10 +75,11 @@ body{
 #data-selectors td, #view-selectors td{ 
 	border-left: 1px solid white; 
 	padding: 0.1em 0.3em 0.1em 0.3em;
-    background-color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(0, 0, 0, 0.4);
 }
-#data-selectors td:first-child, #view-selectors td:first-child { 
-	border-left: none; 
+
+#data-selectors td:first-child, #data-selectors td:nth-child(4), #view-selectors td:first-child { 
+	border-left: none;
 }
 
 .table-board{

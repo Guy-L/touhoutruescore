@@ -9,6 +9,7 @@
 		<link href="gold.ico" rel="icon">
 		
 		<link href="index.css" type="text/css" rel="stylesheet"/>
+		<link href="custom-select.css" type="text/css" rel="stylesheet"/>
 		<script src="jquery-3.6.0.min.js"></script>
 		<script src='sql-wasm.js'></script>
 		<script src="sorttable.js"></script>
@@ -27,9 +28,30 @@
 			<div id="data-selectors">
 				<table>
 					<tr>
-						<td>Any difficulty...</th>
-						<td>Any character...</th>
-						<td>Sort by: Score</th>
+						<td class="custom-select" style="width:200px;">
+							<select selecting="diff">
+								<option value="0">Any Difficulty</option>
+								<option value="1">Lunatic</option>
+								<option value="2">Hard</option>
+							</select>
+						</td>
+						<td class="custom-select" style="width:200px;">
+							<select selecting="char">
+								<option value="0">Any Character</option>
+								<option value="1">Reimu</option>
+								<option value="2">Marisa</option>
+								<option value="3">Sakuya</option>
+								<option value="4">Sanae</option>
+							</select>
+						</td>
+						<td colspan=2 style="color:#C2C2C2;">Sort by:</td>
+						<td class="custom-select" style="width:90px;">
+							<select selecting="sort">
+								<option value="0">Score</option>
+								<option value="1">Gold</option>
+								<option value="2">Date</option>
+							</select>
+						</td>
 					</tr>
 				</table>	
 			</div>
@@ -79,4 +101,7 @@ when entering Stage 6 and must be added to the final score read to calculate tru
 			</div>
 		</div>
 	</body>
+	
+	
+	<script src="custom-select.js"></script>
 </html> 

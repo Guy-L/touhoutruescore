@@ -40,8 +40,11 @@ async function getUMData(){
 	return db.exec("SELECT * from um ORDER BY TrueScore DESC;");
 }
 
+function updateDiff(diff) { alert(diff); }
+function updateChar(crct) { alert(crct); }
+function updateSort(sort) { alert(sort); }
+
 //TODO: 
-//0.5. Stable sort should be implemented for time
 //1. Filter selectors
 //2. View selectors
 //3. WBaWC
