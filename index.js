@@ -3,9 +3,7 @@ $(function() {
 	$("body").css("background-repeat", "no-repeat");
 	$("body").css("background-size", "100% auto");
 	var umtable = document.getElementById("umtable");
-	
-	//alert("This is a WIP site. Please come back later.");
-	
+		
 	getUMData().then((um) => {
 		for(let replay of um[0].values){
 			let row = umtable.insertRow();
@@ -28,6 +26,8 @@ $(function() {
 		updateDiff($(".select-selected")[0].innerHTML);
 		updateChar($(".select-selected")[1].innerHTML);
 		updateSort($(".select-selected")[2].innerHTML);
+		if (localStorage['viewMode']) changeView(localStorage['viewMode']);
+		else changeView(2);
 	});
 });
 
@@ -100,9 +100,16 @@ function updateSort(sort) {
     sorttable.innerSortFunction.apply($("#" + sort)[0], []);
 }
 
-function changeView(o, mode){
+function changeView(mode, o){
+	localStorage['viewMode'] = mode;
+	
+	if(o === undefined) o = $("#view-selectors td")[mode];
+	
 	$(".selected-view").removeClass("selected-view");
-	$(o).addClass("selected-view");
+	o.classList.add("selected-view");
+	
+	$(".visible-view").removeClass("visible-view");
+	$("#umboard").children()[mode].classList.add("visible-view");
 }
 
 //TODO: 

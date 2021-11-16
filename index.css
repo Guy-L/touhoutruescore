@@ -23,8 +23,20 @@ body{
 }
 
 #umboard {
-	overflow-x: scroll;
+	overflow-x: auto;
 	width: 100%;
+}
+
+#umboard div, #umboard table {
+	display: none;
+}
+
+#umboard div.visible-view {
+	display: initial;
+}
+
+#umboard table.visible-view {
+	display: table;
 }
 
 #banner{
