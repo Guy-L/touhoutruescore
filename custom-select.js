@@ -16,11 +16,13 @@ for (i = 0; i < l; i++) {
   for (j = 0; j < ll; j++) {
     /* For each option in the original select element,
     create a new DIV that will act as an option item: */
-    c = document.createElement("DIV");
+    let c = document.createElement("DIV");
     c.innerHTML = selElmnt.options[j].innerHTML;
     c.addEventListener("click", function(e) {
         /* When an item is clicked, update the original select box,
         and the selected item: */
+		if(this.classList.contains("select-disabled")) return;
+		
         var y, i, k, s, h, sl, yl;
         s = this.parentNode.parentNode.getElementsByTagName("select")[0];
         sl = s.length;
@@ -32,9 +34,9 @@ for (i = 0; i < l; i++) {
             y = this.parentNode.getElementsByClassName("same-as-selected");
             yl = y.length;
             for (k = 0; k < yl; k++) {
-              y[k].removeAttribute("class");
+              y[k].classList.remove("same-as-selected");
             }
-            this.setAttribute("class", "same-as-selected");
+            this.classList.add("same-as-selected");
             break;
           }
         }
@@ -43,7 +45,7 @@ for (i = 0; i < l; i++) {
 		fn = s.getAttribute("selecting");
 		if(fn == "diff") updateDiff(this.innerHTML);
 		else if(fn == "char") updateChar(this.innerHTML);
-		else if(fn == "sort") updateSort(this.innerHTML);
+		else if(fn == "sort") updateSort(this.innerHTML, this);
     });
     b.appendChild(c);
   }

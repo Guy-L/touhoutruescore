@@ -57,8 +57,17 @@ body{
     user-select: none;
 }
 
+#data-selectors table {
+	border-spacing: 0;
+}
+
 #view-selectors table {
 	display: inline-block;
+	border-spacing: 0;
+}
+
+#view-selectors td:not(.selected-view) {
+	cursor: pointer;
 }
 
 #view-selectors td.selected-view {
@@ -86,6 +95,7 @@ body{
 	background-color: rgba(0, 0, 0, 0.5);
 	margin-top: 1em;
 	width: 100%;
+	border-spacing: 0;
 }
 
 img.card{
@@ -165,10 +175,25 @@ a:link, a:visited {
   color: #FEC900;
 }
 
+.filter-0, .filter-1 {
+	display: none;
+}
+
+.selected-desc:after{
+	margin-left: 0.1em;
+	font-size: 0.4em;
+	content: " Asc.";
+}
+
+.select-items div.select-disabled{
+	color: grey;
+	cursor: default;
+}
+
 .table-board tr { outline: thin solid grey; }
 .table-board th, .table-board td { white-space: nowrap; }
 .table-board td:nth-child(-n+21), .table-board td:nth-child(24), .table-board th { border-left: 1px solid grey; }
-.table-board td:first-child, .table-board th:first-child { border-left: none; }
+.table-board th:last-child, .table-board td:last-child { border-right: 1px solid grey; }
 .table-board td:nth-child(-n+20) { padding-left: 1em; padding-right: 1em; }
 .table-board th { padding: 0.5em; }
 .table-board tr:nth-child(2n) { background-color: rgba(0, 0, 0, 0.25) }

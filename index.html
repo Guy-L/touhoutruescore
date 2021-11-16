@@ -21,7 +21,7 @@
 			<div id="banner">
 				<img id="logo" src="um.png">
 			</div>
-			About | WBaWC | UM
+			About | WBaWC | UM | WIP Site, please come back later!
 		</div>
 		
 		<div id="board">
@@ -56,27 +56,29 @@
 				</table>	
 			</div>
 			<div id="view-selectors">
-				<img src="help.png" class="game-info">
+				<img src="help.png" class="game-info" onclick="alert('Work in progress feature.');">
 				<table>
 					<tr>
-						<td>Big</th>
-						<td>Normal</th>
-						<td class="selected-view">Table</th>
+						<td onclick="changeView(this, 0)">Big</th>
+						<td onclick="changeView(this, 1)">Normal</th>
+						<td onclick="changeView(this, 2)" class="selected-view">Table</th>
 					</tr>
 				</table>	
 			</div>
 			
 			<div id="umboard">
+				<div>Big</div>
+				<div>Normal</div>
 				<table id="umtable" class="table-board">
 				  <tr>
 					<th class="sorttable_nosort">Difficulty</th>
 					<th class="sorttable_nosort">Character</th>
 					<th class="sorttable_nosort">Submitter</th>
 					<th class="sorttable_nosort">Goes&nbsp;By</th>
-					<th>True Score</th>
+					<th id="Score">True Score</th>
 					<th>Slow</th>
 					<th>UD</th>
-					<th>Date</th>
+					<th id="Date">Date</th>
 					<th class="sorttable_nosort">Time</th>
 					<th class="sorttable_nosort">Comment</th>
 					<th class="sorttable_nosort">Link</th>
@@ -87,7 +89,7 @@ Stage bonus (6mil) has to be added to calculate true score."><img src="help.png"
 					<th>FinShopScore<span class="tip-under"  data-tip="Score read in replay when entering the Stage 5 shop.
 Any score over counterstop (plus the 5mil stage bonus) is reset to counterstop
 when entering Stage 6 and must be added to the final score read to calculate true score."><img src="help.png" class="help"></span></th>
-					<th>Gold</th>
+					<th id="Gold">Gold</th>
 					<th class="sorttable_nosort" colspan=4>Ending Resources<span class="tip-under"  data-tip="Lives (Pieces) / Bombs (Pieces)"><img src="help.png" class="help"></span></th>
 					<th class="sorttable_nosort" colspan=3>Starters</th>
 					<th class="sorttable_nosort">ST1</th>

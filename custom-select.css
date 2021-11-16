@@ -51,7 +51,7 @@
   display: none;
 }
 
-.select-items div:hover, .same-as-selected {
+.select-items div:not(.select-disabled):hover {
   background-color: rgba(30, 30, 30, 0.95);
   transition: .15s;
 } 
