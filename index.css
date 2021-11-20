@@ -27,7 +27,7 @@ body{
 	width: 100%;
 }
 
-#umboard div, #umboard table {
+#umboard > div, #umboard > table {
 	display: none;
 }
 
@@ -128,6 +128,7 @@ img.help{
     -moz-user-select: none; 
     -ms-user-select: none;
     user-select: none;
+    cursor: pointer;
 }
 
 img.game-info{
@@ -140,7 +141,6 @@ img.game-info{
 
 [data-tip] {
   position: relative;
-  cursor: pointer;
 }
 
 [data-tip]:hover:after {
@@ -184,6 +184,10 @@ img.game-info{
 }
 
 a:link, a:visited {
+  color: white;
+}
+
+.table-board a:link, .table-board a:visited {
   color: #FEC900;
 }
 
@@ -217,4 +221,79 @@ a:link, a:visited {
     -moz-user-select: none; 
     -ms-user-select: none;
     user-select: none;
+}
+
+.entry-normal{
+	width:100%;
+	margin-bottom: 5px;
+}
+
+.entry-normal-top{
+	background-color: #272953;
+	border-radius: 5px;
+	padding: 0;
+}
+
+.entry-normal-top table{
+	border-collapse: collapse;
+}
+
+.entry-normal-top img{
+	height: 1em;
+	position: relative;
+	top: 3px;
+	
+	-webkit-user-select: none;    
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.entry-normal-top td:first-child{
+	background-image: url("rank-bg.png");
+	background-repeat: no-repeat;
+	padding-left: 5px;
+	font-weight: bold;
+	color: black;
+	padding-left: 5px;
+	padding-right: 26px;
+	height: 32px;
+	text-align: center;
+	border-radius: 5px;
+	-webkit-user-select: none;    
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.moreInfo{
+	background-color: #0E9614;
+	display: inline-block;
+	padding: 3px 15px 3px 15px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: .5s;
+	-webkit-user-select: none;    
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.moreInfo:hover{
+	background-color: #0A6B0F;
+	transition: .5s;
+}
+ 
+.subName{
+	font-size: .8em;
+	color: grey;
+	padding-left: .5em;
+	
+}
+
+.entry-normal-bottom{
+	background-color: #1B1C38;
+	display: none;
+	border-radius: 5px;
+	padding: 10px;
 }
