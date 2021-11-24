@@ -230,7 +230,7 @@ a:link, a:visited {
 
 .entry-normal-top{
 	background-color: #272953;
-	border-radius: 5px;
+	border-radius: 5px 5px 0 0;
 	padding: 0;
 }
 
@@ -292,8 +292,16 @@ a:link, a:visited {
 }
 
 .entry-normal-bottom{
-	background-color: #1B1C38;
+	background-color: rgba(27, 28, 56, 0.6);
 	display: none;
 	border-radius: 5px;
-	padding: 10px;
+	padding: 1px 10px 10px 10px;
+	border-radius: 0 0 5px 5px;
+} /*hex: #1B1C38*/
+
+.entry-normal-bottom th{
+	-webkit-user-select: none;    
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    user-select: none;
 }
