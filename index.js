@@ -20,10 +20,10 @@ $(function() {
 				
 				if(replay[data] == null) continue;
 				
-				if(data == 5) cell.innerHTML = replay[data].toFixed(2) + "%";
-				else if(data == 6) cell.innerHTML = replay[data];
-				else if(data == 10) cell.innerHTML = "<a href=\"" + replay[data] + "\">Resource</a>" + (replay[28] == 1 ? "<span data-tip=\"This replay had to be repaired due to desyncs.\nIts current host differs from its source.\"><img src=\"help.png\" class=\"help\"></span>":"");
-				else if(data > 19 && data < 28) cell.innerHTML = "<img src=\"cards/" + replay[data] + ".png\" alt=\"" + replay[data] + "\" title=\"" + replay[data] + "\" class=\"card\">";
+				if(data == 6) cell.innerHTML = replay[data].toFixed(2) + "%";
+				else if(data == 7) cell.innerHTML = replay[data];
+				else if(data == 11) cell.innerHTML = "<a href=\"" + replay[data] + "\">Resource</a>" + (replay[29] == 1 ? "<span data-tip=\"This replay had to be repaired due to desyncs.\nIts current host differs from its source.\"><img src=\"help.png\" class=\"help\"></span>":"");
+				else if(data > 20 && data < 29) cell.innerHTML = "<img src=\"cards/" + replay[data] + ".png\" alt=\"" + replay[data] + "\" title=\"" + replay[data] + "\" class=\"card\">";
 				else cell.innerHTML = isNaN(replay[data]) ? replay[data] : Number(replay[data]).toLocaleString();
 			}
 			
@@ -32,26 +32,27 @@ $(function() {
 			let special = "";
 			if(replay[0] != "Lunatic") special = "<span data-tip=\""+replay[0]+"\" "+cls+"><img src=\"special/"+replay[0]+".png\" style=\"height:90%\" alt=\""+replay[0]+"\"></span>";
 			else if(replay[1] != "Sakuya") special = "<img src=\"special/"+replay[1]+".png\" style=\"height:90%\" alt=\""+replay[1]+"\">";
-			let lives = "<img src=\"resources/life.png\" alt=\"L\">".repeat(replay[16]) + (replay[17] > 0 || replay[16] == 0 ? "<img src=\"resources/lifepiece"+replay[17]+".png\" alt=\"+"+replay[17]+"\">" : "");
-			let bombs = "<img src=\"resources/bomb.png\" alt=\"B\">".repeat(replay[18]) + (replay[19] > 0 || replay[18] == 0 ? "<img src=\"resources/bombpiece"+replay[19]+".png\" alt=\"+"+replay[19]+"\">" : "");
-			
+			let lives = "<img src=\"resources/life.png\" alt=\"L\">".repeat(replay[17]) + (replay[18] > 0 || replay[17] == 0 ? "<img src=\"resources/lifepiece"+replay[18]+".png\" alt=\"+"+replay[18]+"\">" : "");
+			let bombs = "<img src=\"resources/bomb.png\" alt=\"B\">".repeat(replay[19]) + (replay[20] > 0 || replay[19] == 0 ? "<img src=\"resources/bombpiece"+replay[20]+".png\" alt=\"+"+replay[20]+"\">" : "");
+			//to add flag names as tip: <span ${cls} data-tip="${replay[2]}">         </span>
 			
 			$(umnormal).append(
 			`
 			<div class="entry-normal">
 				<div class="entry-normal-top" onclick="expandNormal(this)">
 					<table><tr>
-					<td>#${i+1}</td>
-					<td style="width:45.8%; padding-left: 10px;">${replay[3]}<span class="subName">${replay[2]==replay[3]?"":"("+replay[2]+")"}</span></td>
+					<td style="padding-right:${i < 9?"35px":"26px"}">#${i+1}</td>
+					<td style="width:1.8%; padding-left: 5px;"><img style="width:100%; height:auto;" src="flags/${replay[2]}.png" title="${replay[2]}"></td>
+					<td style="width:44.8%; padding-left: 5px;">${replay[4]}<span class="subName">${replay[3]==replay[4]?"":"("+replay[3]+")"}</span></td>
 					<td style="width:2%; height: 30px;">${special}</td>
-					<td style="width:10%; text-align: center; text-shadow: 0px 0px 5px black, 0px 0px 5px black, 0px 0px 5px black;">${replay[4].toLocaleString()}</td>
-					<td style="width:5.6%; text-align: right;">${replay[15].toLocaleString()}&nbsp;<img src="resources/gold.png" alt="G"></td>
-					<td style="width:10.3%; text-align: center;" ${cls} data-tip="Replay date (${replay[8]})
-Submitted: ${replay[12]}">${replay[7]}</td>
-					<td style="width:3.8%; text-align: center;" ${cls} data-tip="Slowdown %">${replay[5].toFixed(2)}%</td>
+					<td style="width:10%; text-align: center; text-shadow: 0px 0px 5px black, 0px 0px 5px black, 0px 0px 5px black;">${replay[5].toLocaleString()}</td>
+					<td style="width:5.6%; text-align: right;">${replay[16].toLocaleString()}&nbsp;<img src="resources/gold.png" alt="G" title="Gold"></td>
+					<td style="width:10.3%; text-align: center;" ${cls} data-tip="Replay date (${replay[9]})
+Submitted: ${replay[13]}">${replay[8]}</td>
+					<td style="width:3.8%; text-align: center;" ${cls} data-tip="Slowdown %">${replay[6].toFixed(2)}%</td>
 					<td style="width:5.8%; text-align: center;" ${cls} data-tip="Ending lives">${lives}</td>
 					<td style="width:5.8%; text-align: center;" ${cls} data-tip="Ending bombs">${bombs}</td>
-					<td style="width:2.8%; text-align: center;" ${cls} data-tip="Click to download replay${replay[28] == 1 ? "\nThis replay had to be repaired due to desyncs.\nIts current host differs from its source." : ""}"><a href="${replay[10]}" onclick="stopEvent(event);"><img src="royalflare.png" alt="${replay[11]}"></a></td>
+					<td style="width:2.8%; text-align: center;" ${cls} data-tip="Click to download replay${replay[29] == 1 ? "\nThis replay had to be repaired due to desyncs.\nIts current host differs from its source." : ""}"><a href="${replay[11]}" onclick="stopEvent(event);"><img src="royalflare.png" alt="${replay[12]}"></a></td>
 					<td style="width:7.3%; text-align: center;"><div class="moreInfo">More Info</div></td>
 					</tr></table>
 				</div>
@@ -67,17 +68,17 @@ Submitted: ${replay[12]}">${replay[7]}</td>
 							<th style="border-bottom: 1px dashed grey;">ST5</th>
 						</tr>
 						<tr>
-							<td style="border-right: 1px dashed grey;">${replay[9].replace("//", "<br>")}</td>
+							<td style="border-right: 1px dashed grey;">${replay[10].replace("//", "<br>")}</td>
 							<th>
-								<span class="tip-under" data-tip="${replay[20]}"> <img src="cards/${replay[20]}.png" alt="${replay[20]}" class=\"card\"> </span>
 								<span class="tip-under" data-tip="${replay[21]}"> <img src="cards/${replay[21]}.png" alt="${replay[21]}" class=\"card\"> </span>
 								<span class="tip-under" data-tip="${replay[22]}"> <img src="cards/${replay[22]}.png" alt="${replay[22]}" class=\"card\"> </span>
+								<span class="tip-under" data-tip="${replay[23]}"> <img src="cards/${replay[23]}.png" alt="${replay[23]}" class=\"card\"> </span>
 							</th>
-							<th> <span class="tip-under" data-tip="${replay[23]}"> <img src="cards/${replay[23]}.png" alt="${replay[23]}" class=\"card\"> </span> </th>
 							<th> <span class="tip-under" data-tip="${replay[24]}"> <img src="cards/${replay[24]}.png" alt="${replay[24]}" class=\"card\"> </span> </th>
 							<th> <span class="tip-under" data-tip="${replay[25]}"> <img src="cards/${replay[25]}.png" alt="${replay[25]}" class=\"card\"> </span> </th>
 							<th> <span class="tip-under" data-tip="${replay[26]}"> <img src="cards/${replay[26]}.png" alt="${replay[26]}" class=\"card\"> </span> </th>
 							<th> <span class="tip-under" data-tip="${replay[27]}"> <img src="cards/${replay[27]}.png" alt="${replay[27]}" class=\"card\"> </span> </th>
+							<th> <span class="tip-under" data-tip="${replay[28]}"> <img src="cards/${replay[28]}.png" alt="${replay[28]}" class=\"card\"> </span> </th>
 							
 						</tr>
 					</table>
@@ -197,3 +198,4 @@ function stopEvent(e) {
 //Distant - Double-check UM replays for life cards bought
 //Distant - PC-98 leaderboards maybe?
 //To consider - can do without jquery?
+//To consider - use relational dbs for player info (no need to store them per-replay)
