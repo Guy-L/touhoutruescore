@@ -38,17 +38,17 @@ $(function() {
 			
 			$(umnormal).append(
 			`
-			<div class="entry-normal">
+			<div class="entry-normal" fil0="${replay[0]}" fil1="${replay[1]}">
 				<div class="entry-normal-top" onclick="expandNormal(this)">
 					<table><tr>
 					<td style="padding-right:${i < 9?"35px":"26px"}">#${i+1}</td>
 					<td style="width:1.8%; padding-left: 5px;"><img style="width:100%; height:auto;" src="flags/${replay[2]}.png" title="${replay[2]}"></td>
 					<td style="width:44.8%; padding-left: 5px;">${replay[4]}<span class="subName">${replay[3]==replay[4]?"":"("+replay[3]+")"}</span></td>
 					<td style="width:2%; height: 30px;">${special}</td>
-					<td style="width:10%; text-align: center; text-shadow: 0px 0px 5px black, 0px 0px 5px black, 0px 0px 5px black;">${replay[5].toLocaleString()}</td>
-					<td style="width:5.6%; text-align: right;">${replay[16].toLocaleString()}&nbsp;<img src="resources/gold.png" alt="G" title="Gold"></td>
+					<td style="width:10%; text-align: center; text-shadow: 0px 0px 5px black, 0px 0px 5px black, 0px 0px 5px black;" class="Score">${replay[5].toLocaleString()}</td>
+					<td style="width:5.6%; text-align: right;"><span class="Gold">${replay[16].toLocaleString()}</span>&nbsp;<img src="resources/gold.png" alt="G" title="Gold"></td>
 					<td style="width:10.3%; text-align: center;" ${cls} data-tip="Replay date (${replay[9]})
-Submitted: ${replay[13]}">${replay[8]}</td>
+Submitted: ${replay[13]}"><span class="Date">${replay[8]}</span></td>
 					<td style="width:3.8%; text-align: center;" ${cls} data-tip="Slowdown %">${replay[6].toFixed(2)}%</td>
 					<td style="width:5.8%; text-align: center;" ${cls} data-tip="Ending lives">${lives}</td>
 					<td style="width:5.8%; text-align: center;" ${cls} data-tip="Ending bombs">${bombs}</td>
@@ -113,17 +113,14 @@ async function getUMData(){
 }
 
 function updateDiff(diff){
-	if(diff == "Hard"){
+	if(diff == "Hard")
 		$("#data-selectors td:nth-child(2) .select-items").children()[3].click();
-		//let chars = $("#data-selectors td:nth-child(2) .select-items").children();
-		////chars[3].click();
-		//for(let c = 1; c < chars.length; c++) if(c == 3) continue; else chars[c].classList.add("select-disabled");
-	} //else $(".select-disabled").removeClass("select-disabled");
 	
 	if(diff == "Any Difficulty") {
 		$('#umtable td:first-child').show();
 		$('#umtable th:first-child').show();
 		$(".filter-0").removeClass("filter-0");
+		reindexNormal();
 	} else {
 		$('#umtable td:first-child').hide();
 		$('#umtable th:first-child').hide();
@@ -132,15 +129,15 @@ function updateDiff(diff){
 }
 
 function updateChar(crct){
-	if(crct == "Reimu" || crct == "Marisa" || crct == "Sanae"){
+	if(crct == "Reimu" || crct == "Marisa" || crct == "Sanae")
 		$("#data-selectors td:first-child .select-items").children()[1].click();
-		//$("#data-selectors td:first-child .select-items").children()[2].classList.add("select-disabled");
-	} //else $(".select-disabled").removeClass("select-disabled");
+	
 	
 	if(crct == "Any Character") {
 		$('#umtable td:nth-child(2)').show();
 		$('#umtable th:nth-child(2)').show();
 		$(".filter-1").removeClass("filter-1");
+		reindexNormal();
 	} else {
 		$('#umtable td:nth-child(2)').hide();
 		$('#umtable th:nth-child(2)').hide();
@@ -149,23 +146,53 @@ function updateChar(crct){
 }
 
 function filter(f, column) {
-	let rows = $("#umboard tbody tr");
+	//Table row filtering
+	let rows = $("#umtable tbody tr");
 	
 	for(let row of rows){
 		if(row.children[column].innerHTML == f) row.classList.remove("filter-" + column);
 		else row.classList.add("filter-" + column);
 	}
+	
+	//Normal div filtering
+	$("#umnormal .entry-normal").each(function(){
+		if($(this).attr("fil" + column) == f) $(this).removeClass("filter-" + column);
+		else $(this).addClass("filter-" + column);
+	}); reindexNormal();
 }
 
 function updateSort(sort) { 
+	let desc = 1;
     let opt = $(".select-items div:contains('"+sort+"')");
-	if(opt.hasClass("selected-desc")) opt.removeClass("selected-desc");
-	else {
+	if(opt.hasClass("selected-desc")) {
+		desc = -1;
+		opt.removeClass("selected-desc");
+	} else {
 		$(".selected-desc").removeClass("selected-desc");
 		opt.addClass("selected-desc");
 	}
 	
-    sorttable.innerSortFunction.apply($("#" + sort)[0], []);
+	//Table row sorting
+    sorttable.innerSortFunction.apply($("#" + sort)[0], []); //todo dont use ids...
+	
+	//Normal div sorting
+	$("#umnormal .entry-normal").sort(function (a, b) {
+		let va, vb;
+		
+		if(sort == "Date"){
+			va = $(a).find("." + sort).html().split("/"); 
+			va = new Date(va[2], va[1] -1, va[0]);
+			console.log(va);
+			vb = $(b).find("." + sort).html().split("/");
+			vb = new Date(+vb[2], vb[1] -1, +vb[0]);
+		} else {
+			va = parseInt($(a).find("." + sort).html().replace(/,/g, ''));
+			vb = parseInt($(b).find("." + sort).html().replace(/,/g, ''));
+		}
+		
+		return (va > vb) ? -desc : (va < vb) ? desc : 0;
+	}).appendTo("#umnormal");
+	reindexNormal();
 }
 
 function changeView(mode, o){
@@ -184,6 +211,12 @@ function expandNormal(entry){
 	$(entry).siblings('.entry-normal-bottom').slideToggle(300);  
 	moreInfo = $(entry).find('.moreInfo');
 	moreInfo.html(moreInfo.html() == "More Info"?"Less Info":"More Info");
+}
+
+function reindexNormal(){
+	$("#umnormal .entry-normal:not(.filter-0):not(.filter-1) div:first-child td:first-child").html(function(i) { 
+		return "#"+(i+1); 
+	});
 }
 
 function stopEvent(e) {

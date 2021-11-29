@@ -45,7 +45,7 @@ for (i = 0; i < l; i++) {
 		fn = s.getAttribute("selecting");
 		if(fn == "diff") updateDiff(this.innerHTML);
 		else if(fn == "char") updateChar(this.innerHTML);
-		else if(fn == "sort") updateSort(this.innerHTML, this);
+		else if(fn == "sort") updateSort(this.innerHTML);
     });
     b.appendChild(c);
   }
