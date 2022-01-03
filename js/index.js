@@ -1,5 +1,5 @@
 $(function() {
-    $("body").css("background-image", "url(backgrounds/" + (Math.floor(Math.random() * 38)+1) + ".png)");
+    $("body").css("background-image", "url(assets/backgrounds/" + (Math.floor(Math.random() * 38)+1) + ".png)");
 	$("body").css("background-repeat", "no-repeat");
 	$("body").css("background-size", "100% auto");
 		
@@ -22,18 +22,18 @@ $(function() {
 				
 				if(data == 6) cell.innerHTML = replay[data].toFixed(2) + "%";
 				else if(data == 7) cell.innerHTML = replay[data];
-				else if(data == 11) cell.innerHTML = "<a href=\"" + replay[data] + "\">Resource</a>" + (replay[29] == 1 ? "<span data-tip=\"This replay had to be repaired due to desyncs.\nIts current host differs from its source.\"><img src=\"help.png\" class=\"help\"></span>":"");
-				else if(data > 20 && data < 29) cell.innerHTML = "<img src=\"cards/" + replay[data] + ".png\" alt=\"" + replay[data] + "\" title=\"" + replay[data] + "\" class=\"card\">";
+				else if(data == 11) cell.innerHTML = "<a href=\"" + replay[data] + "\">Resource</a>" + (replay[29] == 1 ? "<span data-tip=\"This replay had to be repaired due to desyncs.\nIts current host differs from its source.\"><img src=\"assets\\help.png\" class=\"help\"></span>":"");
+				else if(data > 20 && data < 29) cell.innerHTML = "<img src=\"assets\\cards/" + replay[data] + ".png\" alt=\"" + replay[data] + "\" title=\"" + replay[data] + "\" class=\"card\">";
 				else cell.innerHTML = isNaN(replay[data]) ? replay[data] : Number(replay[data]).toLocaleString();
 			}
 			
 			//Normal View
 			let cls = (i==0)? "class=\"tip-under\"":"";
 			let special = "";
-			if(replay[0] != "Lunatic") special = "<span data-tip=\""+replay[0]+"\" "+cls+"><img src=\"special/"+replay[0]+".png\" style=\"height:90%\" alt=\""+replay[0]+"\"></span>";
-			else if(replay[1] != "Sakuya") special = "<img src=\"special/"+replay[1]+".png\" style=\"height:90%\" alt=\""+replay[1]+"\">";
-			let lives = "<img src=\"resources/life.png\" alt=\"L\">".repeat(replay[17]) + (replay[18] > 0 || replay[17] == 0 ? "<img src=\"resources/lifepiece"+replay[18]+".png\" alt=\"+"+replay[18]+"\">" : "");
-			let bombs = "<img src=\"resources/bomb.png\" alt=\"B\">".repeat(replay[19]) + (replay[20] > 0 || replay[19] == 0 ? "<img src=\"resources/bombpiece"+replay[20]+".png\" alt=\"+"+replay[20]+"\">" : "");
+			if(replay[0] != "Lunatic") special = "<span data-tip=\""+replay[0]+"\" "+cls+"><img src=\"assets\\special/"+replay[0]+".png\" style=\"height:90%\" alt=\""+replay[0]+"\"></span>";
+			else if(replay[1] != "Sakuya") special = "<img src=\"assets\\special/"+replay[1]+".png\" style=\"height:90%\" alt=\""+replay[1]+"\">";
+			let lives = "<img src=\"assets\\resources/life.png\" alt=\"L\">".repeat(replay[17]) + (replay[18] > 0 || replay[17] == 0 ? "<img src=\"assets\\resources/lifepiece"+replay[18]+".png\" alt=\"+"+replay[18]+"\">" : "");
+			let bombs = "<img src=\"assets\\resources/bomb.png\" alt=\"B\">".repeat(replay[19]) + (replay[20] > 0 || replay[19] == 0 ? "<img src=\"assets\\resources/bombpiece"+replay[20]+".png\" alt=\"+"+replay[20]+"\">" : "");
 			//to add flag names as tip: <span ${cls} data-tip="${replay[2]}">         </span>
 			
 			$(umnormal).append(
@@ -42,17 +42,17 @@ $(function() {
 				<div class="entry-normal-top" onclick="expandNormal(this)">
 					<table><tr>
 					<td style="padding-right:${i < 9?"35px":"26px"}">#${i+1}</td>
-					<td style="width:1.8%; padding-left: 5px;"><img style="width:100%; height:auto;" src="flags/${replay[2]}.png" title="${replay[2]}"></td>
+					<td style="width:1.8%; padding-left: 5px;"><img style="width:100%; height:auto;" src="assets/flags/${replay[2]}.png" title="${replay[2]}"></td>
 					<td style="width:44.8%; padding-left: 5px;">${replay[4]}<span class="subName">${replay[3]==replay[4]?"":"("+replay[3]+")"}</span></td>
 					<td style="width:2%; height: 30px;">${special}</td>
 					<td style="width:10%; text-align: center; text-shadow: 0px 0px 5px black, 0px 0px 5px black, 0px 0px 5px black;" class="Score">${replay[5].toLocaleString()}</td>
-					<td style="width:5.6%; text-align: right;"><span class="Gold">${replay[16].toLocaleString()}</span>&nbsp;<img src="resources/gold.png" alt="G" title="Gold"></td>
+					<td style="width:5.6%; text-align: right;"><span class="Gold">${replay[16].toLocaleString()}</span>&nbsp;<img src="assets/resources/gold.png" alt="G" title="Gold"></td>
 					<td style="width:10.3%; text-align: center;" ${cls} data-tip="Replay date (${replay[9]})
 Submitted: ${replay[13]}"><span class="Date">${replay[8]}</span></td>
 					<td style="width:3.8%; text-align: center;" ${cls} data-tip="Slowdown %">${replay[6].toFixed(2)}%</td>
 					<td style="width:5.8%; text-align: center;" ${cls} data-tip="Ending lives">${lives}</td>
 					<td style="width:5.8%; text-align: center;" ${cls} data-tip="Ending bombs">${bombs}</td>
-					<td style="width:2.8%; text-align: center;" ${cls} data-tip="Click to download replay${replay[29] == 1 ? "\nThis replay had to be repaired due to desyncs.\nIts current host differs from its source." : ""}"><a href="${replay[11]}" onclick="stopEvent(event);"><img src="royalflare.png" alt="${replay[12]}"></a></td>
+					<td style="width:2.8%; text-align: center;" ${cls} data-tip="Click to download replay${replay[29] == 1 ? "\nThis replay had to be repaired due to desyncs.\nIts current host differs from its source." : ""}"><a href="${replay[11]}" onclick="stopEvent(event);"><img src="assets/royalflare.png" alt="${replay[12]}"></a></td>
 					<td style="width:7.3%; text-align: center;"><div class="moreInfo">More Info</div></td>
 					</tr></table>
 				</div>
@@ -70,15 +70,15 @@ Submitted: ${replay[13]}"><span class="Date">${replay[8]}</span></td>
 						<tr>
 							<td style="border-right: 1px dashed grey;">${replay[10].replace("//", "<br>")}</td>
 							<th>
-								<span class="tip-under" data-tip="${replay[21]}"> <img src="cards/${replay[21]}.png" alt="${replay[21]}" class=\"card\"> </span>
-								<span class="tip-under" data-tip="${replay[22]}"> <img src="cards/${replay[22]}.png" alt="${replay[22]}" class=\"card\"> </span>
-								<span class="tip-under" data-tip="${replay[23]}"> <img src="cards/${replay[23]}.png" alt="${replay[23]}" class=\"card\"> </span>
+								<span class="tip-under" data-tip="${replay[21]}"> <img src="assets/cards/${replay[21]}.png" alt="${replay[21]}" class=\"card\"> </span>
+								<span class="tip-under" data-tip="${replay[22]}"> <img src="assets/cards/${replay[22]}.png" alt="${replay[22]}" class=\"card\"> </span>
+								<span class="tip-under" data-tip="${replay[23]}"> <img src="assets/cards/${replay[23]}.png" alt="${replay[23]}" class=\"card\"> </span>
 							</th>
-							<th> <span class="tip-under" data-tip="${replay[24]}"> <img src="cards/${replay[24]}.png" alt="${replay[24]}" class=\"card\"> </span> </th>
-							<th> <span class="tip-under" data-tip="${replay[25]}"> <img src="cards/${replay[25]}.png" alt="${replay[25]}" class=\"card\"> </span> </th>
-							<th> <span class="tip-under" data-tip="${replay[26]}"> <img src="cards/${replay[26]}.png" alt="${replay[26]}" class=\"card\"> </span> </th>
-							<th> <span class="tip-under" data-tip="${replay[27]}"> <img src="cards/${replay[27]}.png" alt="${replay[27]}" class=\"card\"> </span> </th>
-							<th> <span class="tip-under" data-tip="${replay[28]}"> <img src="cards/${replay[28]}.png" alt="${replay[28]}" class=\"card\"> </span> </th>
+							<th> <span class="tip-under" data-tip="${replay[24]}"> <img src="assets/cards/${replay[24]}.png" alt="${replay[24]}" class=\"card\"> </span> </th>
+							<th> <span class="tip-under" data-tip="${replay[25]}"> <img src="assets/cards/${replay[25]}.png" alt="${replay[25]}" class=\"card\"> </span> </th>
+							<th> <span class="tip-under" data-tip="${replay[26]}"> <img src="assets/cards/${replay[26]}.png" alt="${replay[26]}" class=\"card\"> </span> </th>
+							<th> <span class="tip-under" data-tip="${replay[27]}"> <img src="assets/cards/${replay[27]}.png" alt="${replay[27]}" class=\"card\"> </span> </th>
+							<th> <span class="tip-under" data-tip="${replay[28]}"> <img src="assets/cards/${replay[28]}.png" alt="${replay[28]}" class=\"card\"> </span> </th>
 							
 						</tr>
 					</table>

@@ -2,7 +2,7 @@ body{
 	scroll-behavior: smooth;
 	font-family: Montserrat,Helvetica,Arial,sans-serif;
 	background-color: black;
-	background-image: url("defaultbg.png");
+	background-image: url("../assets/backgrounds/defaultbg.png");
 	background-repeat: repeat;
 	margin: 0 100px 0 0;
 	color:white;
@@ -40,7 +40,7 @@ body{
 }
 
 #banner{
-	background-image: url("banner.png");
+	background-image: url("../assets/backgrounds/banner.png");
 	background-repeat: no-repeat;
 	background-size: 100% auto;
 	background-position: 0 -15em;
@@ -250,7 +250,7 @@ a:link, a:visited {
 }
 
 .entry-normal-top td:first-child{
-	background-image: url("rank-bg.png");
+	background-image: url("../assets/rank-bg.png");
 	background-repeat: no-repeat;
 	padding-left: 5px;
 	font-weight: bold;

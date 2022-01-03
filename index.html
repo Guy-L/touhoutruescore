@@ -7,18 +7,18 @@
 		<title>TrueScore Leaderboards</title>
 		<link href="favicon.ico" rel="icon">
 		
-		<link href="index.css" type="text/css" rel="stylesheet"/>
-		<link href="custom-select.css" type="text/css" rel="stylesheet"/>
-		<script src="jquery-3.6.0.min.js"></script>
-		<script src='sql-wasm.js'></script>
-		<script src="sorttable.js"></script>
-		<script src="index.js"></script>
+		<link href="css/index.css" type="text/css" rel="stylesheet"/>
+		<link href="css/custom-select.css" type="text/css" rel="stylesheet"/>
+		<script src="js/jquery-3.6.0.min.js"></script>
+		<script src='js/sql-wasm.js'></script>
+		<script src="js/sorttable.js"></script>
+		<script src="js/index.js"></script>
 	</head>
 	
 	<body>
 		<div id="main">
 			<div id="banner">
-				<img id="logo" src="um.png">
+				<img id="logo" src="assets/um.png">
 			</div>
 			About | WBaWC | UM | WIP Site, please come back later!
 		</div>
@@ -55,7 +55,7 @@
 				</table>	
 			</div>
 			<div id="view-selectors">
-				<img src="help.png" class="game-info" onclick="alert('Work in progress feature.');">
+				<img src="assets/help.png" class="game-info" onclick="alert('Work in progress feature.');">
 				<table>
 					<tr>
 						<td onclick="changeView(0, this)">Big</th>
@@ -83,14 +83,14 @@
 					<th class="sorttable_nosort">Comment</th>
 					<th class="sorttable_nosort">Link</th>
 					<th class="sorttable_nosort">Source</th>
-					<th>SubDate<span class="tip-under" data-tip="Submission Date"><img src="help.png" class="help"></span></th>
+					<th>SubDate<span class="tip-under" data-tip="Submission Date"><img src="assets/help.png" class="help"></span></th>
 					<th>FinRpyScore<span class="tip-under" data-tip="Final score read in replay using ACK's current bonus fix.
-Stage bonus (6mil) has to be added to calculate true score."><img src="help.png" class="help"></span></th>
+Stage bonus (6mil) has to be added to calculate true score."><img src="assets/help.png" class="help"></span></th>
 					<th>FinShopScore<span class="tip-under"  data-tip="Score read in replay when entering the Stage 5 shop.
 Any score over counterstop (plus the 5mil stage bonus) is reset to counterstop
-when entering Stage 6 and must be added to the final score read to calculate true score."><img src="help.png" class="help"></span></th>
+when entering Stage 6 and must be added to the final score read to calculate true score."><img src="assets/help.png" class="help"></span></th>
 					<th id="Gold">Gold</th>
-					<th class="sorttable_nosort" colspan=4>Ending Resources<span class="tip-under" data-tip="Lives (Pieces) / Bombs (Pieces)"><img src="help.png" class="help"></span></th>
+					<th class="sorttable_nosort" colspan=4>Ending Resources<span class="tip-under" data-tip="Lives (Pieces) / Bombs (Pieces)"><img src="assets/help.png" class="help"></span></th>
 					<th class="sorttable_nosort" colspan=3>Starters</th>
 					<th class="sorttable_nosort">ST1</th>
 					<th class="sorttable_nosort">ST2</th>
@@ -101,12 +101,12 @@ when entering Stage 6 and must be added to the final score read to calculate tru
 				</table> 
 				<div class="visible-view">
 					<br><br>
-					<img src="load.png" style="height:50px; display: block; margin: 0 auto; opacity: 0.3;">
+					<img src="assets/load.png" style="height:50px; display: block; margin: 0 auto; opacity: 0.3;">
 				</div>
 			</div>
 		</div>
 	</body>
 	
 	
-	<script src="custom-select.js"></script>
+	<script src="js/custom-select.js"></script>
 </html> 
