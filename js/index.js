@@ -32,6 +32,7 @@ $(function() {
 			let special = "";
 			if(replay[0] != "Lunatic") special = "<span data-tip=\""+replay[0]+"\" "+cls+"><img src=\"assets\\special/"+replay[0]+".png\" style=\"height:90%\" alt=\""+replay[0]+"\"></span>";
 			else if(replay[1] != "Sakuya") special = "<img src=\"assets\\special/"+replay[1]+".png\" style=\"height:90%\" alt=\""+replay[1]+"\">";
+			else if(replay[10].toLowerCase().includes("no focus")) special = "<span data-tip=\"No Focus\"><img src=\"assets\\special/nofocus.png\" style=\"height:90%\" alt=\"NF\"></span>"; //special hardcode cause who cares
 			let lives = "<img src=\"assets\\resources/life.png\" alt=\"L\">".repeat(replay[17]) + (replay[18] > 0 || replay[17] == 0 ? "<img src=\"assets\\resources/lifepiece"+replay[18]+".png\" alt=\"+"+replay[18]+"\">" : "");
 			let bombs = "<img src=\"assets\\resources/bomb.png\" alt=\"B\">".repeat(replay[19]) + (replay[20] > 0 || replay[19] == 0 ? "<img src=\"assets\\resources/bombpiece"+replay[20]+".png\" alt=\"+"+replay[20]+"\">" : "");
 			//to add flag names as tip: <span ${cls} data-tip="${replay[2]}">         </span>
@@ -94,6 +95,7 @@ Submitted: ${replay[13]}"><span class="Date">${replay[8]}</span></td>
 		updateDiff($(".select-selected")[0].innerHTML);
 		updateChar($(".select-selected")[1].innerHTML);
 		updateSort($(".select-selected")[2].innerHTML);
+		if (localStorage['asc'])
 		if (localStorage['viewMode']) changeView(localStorage['viewMode']);
 		else changeView(1);
 	});
@@ -182,7 +184,7 @@ function updateSort(sort) {
 		if(sort == "Date"){
 			va = $(a).find("." + sort).html().split("/"); 
 			va = new Date(va[2], va[1] -1, va[0]);
-			console.log(va);
+
 			vb = $(b).find("." + sort).html().split("/");
 			vb = new Date(+vb[2], vb[1] -1, +vb[0]);
 		} else {
@@ -230,5 +232,6 @@ function stopEvent(e) {
 //4. Infobox stuff
 //Distant - Double-check UM replays for life cards bought
 //Distant - PC-98 leaderboards maybe?
+//To consider - cookie for ascending/descending sorter
 //To consider - can do without jquery?
 //To consider - use relational dbs for player info (no need to store them per-replay)
